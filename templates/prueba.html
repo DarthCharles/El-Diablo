@@ -114,33 +114,11 @@
                         <a href="#">Ejecutivo<input type="checkbox"></a>
                         <ul class="dropdown-menu">
                           <li><a href="#">Erick se equivocóy se fue '14<input type="checkbox"></a></li>
-                                  <li class="dropdown-submenu">
-                    <a href="#">Ventas
-                      <input type="checkbox"></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Honda Civic '07'
-                          <input type="checkbox"></a>
-        <li class="dropdown-submenu">
-                    <a href="#">Ventas
-                      <input type="checkbox"></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Honda Civic '07'
-                          <input type="checkbox"></a></li>
-                          <li><a href="#">Ford Fusion '14'
-                            <input type="checkbox"></a></li>
-                          </ul>
-                        </li>
-                          </li>
-                          <li><a href="#">Ford Fusion '14'
-                            <input type="checkbox"></a></li>
-                          </ul>
-                        </li>
                           <li><a href="#">Grand Cherokee '11'
                             <input type="checkbox"></a></li>
                             <li><a href="#">Ford Mustang '14'
                               <input type="checkbox"></a></li>
                             </ul>
-                            </li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
                               <a href="#">Vehiculos sin grupo<input type="checkbox"></a>
@@ -161,27 +139,43 @@
                               });
 
 
-                       
+                              var toggle = false;
 
                               $('.dropdown-menu input').click(function() {
 
-                             
+                                if (!toggle) {
                                   if ($(this).parents('li')) {
                                     var parent = $(this).parents('li');
 
                                     if ($(parent).attr('class') == 'dropdown-submenu') {
 
                                       console.log('si');
-                                        toggle = true;
+
                                       $(parent).find('ul').each(function(index, value) {
                                         $(value).find('input').prop('checked', true);
 
                                       });
-                                     
+                                      toggle = true;
                                     };
 
                                   };
-                               
+                                } else {
+                                                                    if ($(this).parents('li')) {
+                                    var parent = $(this).parents('li');
+
+                                    if ($(parent).attr('class') == 'dropdown-submenu') {
+
+                                      console.log('si');
+
+                                      $(parent).find('ul').each(function(index, value) {
+                                        $(value).find('input').prop('checked', false);
+
+                                      });
+                                      toggle = false;
+                                    };
+
+                                  };
+                                }
                               });
 
 
