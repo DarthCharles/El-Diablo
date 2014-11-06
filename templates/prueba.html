@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>TITULO AQUI</title>
+
+  <script type="text/javascript"
+  src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="js/map3.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard1.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/jquery-ui.css" rel="stylesheet"/>
+  <script src="lib/external/jquery/jquery.js"></script>
+  <script type="text/javascript">
+   $(function() {
+
+    $(window).resize(function () {
+      var h = $(window).height(),
+        offsetTop = 50; // Calculate the top offset
+
+        $('#map').css('height', (h - offsetTop));
+      }).resize();
+  });
+
+ </script>
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="img/mapitha.png">TITULO AQUI</a>
+      </div>
+      <div class="navbar-collapse collapse">
+          <!--   <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Help</a></li>
+            </ul> -->
+            <form class="navbar-form navbar-right">
+              <!-- <input type="text" class="form-control" placeholder="Search..."> -->
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 sidebar">
+<!--           <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul> -->
+        </div>
+        
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Seleccione Grupo
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="grupo" role="menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Todos los grupos
+                <input type="checkbox"></a>
+                <li class="divider"></li>
+                <li><a href="#">Administración
+                  <input type="checkbox"></a>
+                  <li class="dropdown-submenu">
+                    <a href="#">Ventas
+                      <input type="checkbox"></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Honda Civic '07'
+                          <input type="checkbox"></a></li>
+                          <li><a href="#">Ford Fusion '14'
+                            <input type="checkbox"></a></li>
+                          </ul>
+                        </li>
+                      </li>
+                      <li><a href="#">Marketing<input type="checkbox"></a></li>
+                      <li><a href="#">Repartidores<input type="checkbox"></a></li>
+                      <li class="dropdown-submenu">
+                        <a href="#">Ejecutivo<input type="checkbox"></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Erick se equivocóy se fue '14<input type="checkbox"></a></li>
+                          <li><a href="#">Grand Cherokee '11'
+                            <input type="checkbox"></a></li>
+                            <li><a href="#">Ford Mustang '14'
+                              <input type="checkbox"></a></li>
+                            </ul>
+                            <li class="divider"></li>
+                            <li class="dropdown-submenu">
+                              <a href="#">Vehiculos sin grupo<input type="checkbox"></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Chevrolet Camaro'14<input type="checkbox"></a></li>
+                                <li><a href="#">Grand Cherokee '11'
+                                  <input type="checkbox"></a></li>
+                                  <li><a href="#">Ford Mustang '14'
+                                    <input type="checkbox"></a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <script type="text/javascript">
+                              $('.dropdown-menu input').click(function(e) {
+                                e.stopPropagation();
+                              });
+
+
+                              var toggle = false;
+
+                              $('.dropdown-menu input').click(function() {
+
+                                if (!toggle) {
+                                  if ($(this).parents('li')) {
+                                    var parent = $(this).parents('li');
+
+                                    if ($(parent).attr('class') == 'dropdown-submenu') {
+
+                                      console.log('si');
+
+                                      $(parent).find('ul').each(function(index, value) {
+                                        $(value).find('input').prop('checked', true);
+
+                                      });
+                                      toggle = true;
+                                    };
+
+                                  };
+                                } else {
+                                                                    if ($(this).parents('li')) {
+                                    var parent = $(this).parents('li');
+
+                                    if ($(parent).attr('class') == 'dropdown-submenu') {
+
+                                      console.log('si');
+
+                                      $(parent).find('ul').each(function(index, value) {
+                                        $(value).find('input').prop('checked', false);
+
+                                      });
+                                      toggle = false;
+                                    };
+
+                                  };
+                                }
+                              });
+
+
+// note the comma to separate multiple phrases
+//console.log(phrases);
+</script>
+
+<!--  <div id="map"></div> -->
+
+</div>
+</div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="lib/jquery-ui.js"></script>
+  </body>
+  </html>
